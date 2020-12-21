@@ -42,7 +42,7 @@ module.exports = function replify (options, app, contexts) {
   options.replPath = cleanPipeName(options.path + path.sep + options.name + options.extension)
 
   var logger = options.logger
-    , replServer = net.createServer()
+    , replServer = net.createServer().unref()
 
   replServer.on('connection', function onRequest(socket) {
     var rep = null
